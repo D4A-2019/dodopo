@@ -1,6 +1,7 @@
 import React from 'react';
 import Cotter from 'cotter';
 import { useEffect, useState } from "react";
+import { formContainer } from "../../styles/login"
 
 export default function LoginScreen() {
 
@@ -21,6 +22,6 @@ export default function LoginScreen() {
     }, []);
     
     return (
-        <div id="cotter-form-container" style={{ width: 300, height: 300 }} />
+        <div id="cotter-form-container" style={formContainer} />
     )
 }

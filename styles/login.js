@@ -1,10 +1,18 @@
 export const popup = {
-    fontSize: "12px"
+    fontSize: "12px",
+    width: "100%",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alginItems: "center"
 }
 
 export const content = {
     width: "100%",
-    padding: "10px 5px"
+    padding: "10px 5px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alginItems: "center"
 }
 
 export const closeButton = {
@@ -19,4 +27,12 @@ export const closeButton = {
     background: "#ffffff",
     borderRadius: "18px",
     border: "1px solid #cfcece"
+}
+
+export const formContainer = {
+    width: "100%",
+    height: "250px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alginItems: "center"
 }
