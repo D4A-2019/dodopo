@@ -32,7 +32,6 @@ export default function Home() {
                 ) : (
                     <LoginButton />
                 )}
-
                 <ProductCard 
                     imagesrc="http://code.slicecrowd.com/labs/4/images/t-shirt.png"
                     productName="I feel like Pablo"
