@@ -12,7 +12,7 @@ export default function ProductCard(props) {
                         <span className={styles.pname}>{props.productName}</span>
                         <span className={styles.pcompany}>{props.productSeller}</span>
                     </div>
-    <div className={styles.asize}>Available sizes : <span className={styles.size}>{props.sizes}</span></div>
+                    <div className={styles.asize}>Available sizes : <span className={styles.size}>{props.sizes}</span></div>
                 </div>
             </div>
 
