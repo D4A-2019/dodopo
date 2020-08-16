@@ -3,6 +3,7 @@ import { CosmosClient } from "@azure/cosmos";
 
 function is_request_valid(req: HttpRequest) {
   return (
+    !!req.body.imageUrl &&
     !!req.body.sellerId &&
     !!req.body.name &&
     !!req.body.closeDate &&
@@ -20,6 +21,7 @@ function create_listing_item(req: HttpRequest) {
     quota: req.body.quota,
     price: req.body.price,
     closeDate: req.body.closeDate,
+    imageUrl: req.body.imageUrl,
     name: req.body.name,
     buyers: [],
     updates: [],
