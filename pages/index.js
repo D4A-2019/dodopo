@@ -78,19 +78,19 @@ export default function Album() {
             DODOPO
           </Typography>
           <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Button href="#" color="default">
               Hype
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            </Button>
+            <Button href="#" color="default">
               Exclusive
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Explore   
-            </Link>
+            </Button>
+            <Button href="#" color="default">
+              Explore
+            </Button>
           </nav>
-          <Button href="#" color="primary" variant="outlined" className={classes.link}>
-            Login
-          </Button>
+          <Button href="#" color="default" align="marginRight">
+              Login
+            </Button>
         </Toolbar>
       </AppBar>
       <main>
