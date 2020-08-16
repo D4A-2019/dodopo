@@ -1,45 +1,171 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import ProductCard from '../components/product-card/product-card'
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import CameraIcon from '@material-ui/icons/PhotoCamera';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
-import { useEffect, useState } from "react"
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
-import LoginButton from "../components/login/login-button"
-import LogoutButton from "../components/login/logout-button"
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+  Toolbar:{
+    primary: {
+      dark: '#002884',
+    },
+  },    
+}));
 
-export default function Home() {
-    // state to determine if a user is logged in or not
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+const cards = [1,2,3];
 
-    // effect to check if ACCESS_TOKEN is null or not
-    // if ACCESS_TOKEN is not null, then the user is logged in
-    useEffect(() => {
-        if (localStorage.getItem("ACCESS_TOKEN") != null) {
-            setIsLoggedIn(true);
-        }
-    }, []);
+export default function Album() {
+  const classes = useStyles();
 
-    return (
-        <div className={styles.container}>
-            <Head>
-                <title>Dodopo</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
-            <main className={styles.main}>
-                {isLoggedIn ? (
-                    <LogoutButton />
-                ) : (
-                    <LoginButton />
-                )}
-                <ProductCard 
-                    imagesrc="http://code.slicecrowd.com/labs/4/images/t-shirt.png"
-                    productName="I feel like Pablo"
-                    productSeller="Yeezy"
-                    sizes="S , M , L , XL"
-                    price="$129"
-                />
-            </main>
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="static" color="primary" elevation={4} className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>
+          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+            DODOPO
+          </Typography>
+          <nav>
+            <Button href="#" color="default">
+              Hype
+            </Button>
+            <Button href="#" color="default">
+              Exclusive
+            </Button>
+            <Button href="#" color="default">
+              Explore
+            </Button>
+          </nav>
+          <Button href="#" color="default" align="marginRight">
+              Login
+            </Button>
+        </Toolbar>
+      </AppBar>
+      <main>
+        {/* Hero unit */}
+        <div className={classes.heroContent}>
+          <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+              INI PHOTO BACKGROUND GITU
+            </Typography>
+            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+              LOREM IPSUM BLABLABLA
+            </Typography>
+            <div className={classes.heroButtons}>
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    BUY NOW !   
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    REGISTER 
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </Container>
         </div>
-    )
+        <Container className={classes.cardGrid} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/1200px-Glass_of_Milk_%2833657535532%29.jpg"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Susu Kuda Liar
+                    </Typography>
+                    <Typography>
+                      $400
+                    </Typography>
+                    <Typography>
+                      Closed PO 4 Agustus 2020
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </main>
+      {/* Footer */}
+      <footer className={classes.footer}>
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          Something here to give the footer a purpose!
+        </Typography>
+        <Copyright />
+      </footer>
+      {/* End footer */}
+    </React.Fragment>
+  );
 }
